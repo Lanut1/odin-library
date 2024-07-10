@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 3rem;
+    padding: 3%;
+}
+
+.library-cards {
+    display: grid;
+    grid-template: auto/1fr 1fr 1fr;
+    gap: 10vh;
+    padding: 5%;
+}
+
+.book-card {
+    width: 100%;
+    height: 40vh;
+    background-color: red;
+    justify-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 2%
+}
+
+.book-title {
+    font-size: 1.75rem;
+    font-style: italic;
+    height: 40%;
+}
+
+.book-author {
+    font-weight: bold;
+}
