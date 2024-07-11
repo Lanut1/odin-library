@@ -8,11 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Library</title>
 </head>
 <body>
     <dialog id="add-book-dialog">
-        <button id="close-dialog">Close</button>
+        <button id="close-dialog"><span class="material-symbols-outlined">close</span></button>
+        
         <form action="#" method="post" class="new-book-form">
             <div class="name-input">
                 <label for="title">Title of the book*</label>
@@ -26,35 +28,49 @@
                 <label for="pages">Number of pages*</label>
                 <input type="number" id="pages" min="1" required>
             </div>
+
             <fieldset>
                 <legend>Have you read this book?*</legend>
-              
-                <div>
-                  <input type="radio" id="read-yes" name="reading-status" value="yes" required>
-                  <label for="read-yes">Yes</label>
-                </div>
-              
-                <div>
-                  <input type="radio" id="read-no" name="reading-status" value="no">
-                  <label for="read-no">No</label>
-                </div>
-              
-                <div>
-                  <input type="radio" id="read-progress" name="reading-status" value="in-progress">
-                  <label for="read-progress">In Progress</label>
+                <div class="radio-input">
+                    <div class="radio-item">
+                        <input type="radio" id="read-yes" name="reading-status" value="yes" required>
+                        <label for="read-yes">Yes</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="read-no" name="reading-status" value="no">
+                        <label for="read-no">No</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="read-progress" name="reading-status" value="in-progress">
+                        <label for="read-progress">In Progress</label>
+                    </div>
                 </div>
               </fieldset>
+
             <button type="submit" id="add-book">Add book!</button>
         </form>
     </dialog>
+
     <div class="main-section">
         <div class="header">
             <div class="header-title">Odin Library</div>
-            <button id="show-dialog">Add book</button>
+            <button id="show-dialog">
+                <span class="material-symbols-outlined">add</span>
+                <div class="add-book-dialog">
+                    Add book
+                </div>
+            </button>
         </div>
-        <div class="library-cards">
 
-        </div>
+        <div class="library-cards"></div>
+
+        <footer>
+            <a href="https://github.com/Lanut1" class="github-account">
+                <h2>Built by</h3>
+                <i class="fa fa-github account-name" style="font-size: 30px;"></i>
+                <h2 class="account-name">Lanut1</h3>
+            </a>
+        </footer>
     </div>
 
     <script src="src/script.js"></script>

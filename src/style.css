@@ -14,12 +14,172 @@ body {
   'opsz' 24
 }
 
+dialog[open] {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+dialog {
+    padding: 2%;
+    border-radius: 10%;
+    opacity: 0;
+    transform: scaleY(0);
+    transition:
+        opacity 0.7s ease-out,
+        transform 0.7s ease-out,
+        overlay 0.7s ease-out allow-discrete,
+        display 0.7s ease-out allow-discrete;
+}
+
+@starting-style {
+    dialog[open] {
+      opacity: 0;
+      transform: scaleY(0);
+    }
+}
+
+dialog::backdrop {
+    background-color: rgb(0 0 0 / 0%);
+    transition:
+      display 0.7s allow-discrete,
+      overlay 0.7s allow-discrete,
+      background-color 0.7s;
+}
+  
+dialog[open]::backdrop {
+    background-color: rgba(115, 28, 28, 0.25);
+}
+  
+@starting-style {
+    dialog[open]::backdrop {
+      background-color: rgb(0 0 0 / 0%);
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#close-dialog {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: 24px;
+}
+
+.name-input,
+.author-input,
+.pages-input {
+    display: flex;
+    flex-direction: column;
+}
+
+#pages,
+#author,
+#title {
+    width: 25vw;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 7px;
+    padding: 3px 8px
+}
+
+fieldset,
+legend {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+input[type="radio"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1.1em 1.1em rgb(203, 0, 0);
+}
+  
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+.radio-input {
+    display: flex;
+    gap: 3%;
+    align-items: center;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+#add-book {
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: 0.5s;
+    width: 30%;
+    align-self: flex-end;
+}
+
+#add-book:hover {
+    scale: 110%;
+    background-color: rgb(203, 0, 0, 0.7);
+}
+
+.main-section {
+    display: grid;
+}
 
 .header {
     display: flex;
     justify-content: space-between;
     font-size: 3rem;
     padding: 3%;
+    box-shadow: 2px 2px 5px black;
+    text-shadow: 2px 2px 4px rgb(12, 12, 12, 0.5);
+}
+
+#show-dialog {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-size: 1.3rem;
+    gap: 5px;
+    background: none;
+    border: none;
+    height: 60%;
+    transition: 0.5s;
+}
+
+#show-dialog:hover {
+    scale: 110%;
+    cursor: pointer;
+    color: #CB0000;
 }
 
 .library-cards {
@@ -30,22 +190,69 @@ body {
 }
 
 .book-card {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 40vh;
-    background-color: red;
+    background-color: rgb(203, 0, 0, 0.8);
     justify-self: center;
     text-align: center;
     display: flex;
+    gap: 15%;
     flex-direction: column;
-    padding: 2%
+    padding: 2%;
+    border-radius: 10%;
+    box-shadow: 2px 3px 5px;
 }
 
 .book-title {
     font-size: 1.75rem;
     font-style: italic;
-    height: 40%;
+    height: 30%;
+    padding-top: 5%;
 }
 
 .book-author {
     font-weight: bold;
+}
+
+.book-pages {
+    display: flex;
+    gap: 3px;
+}
+
+.icons-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons-settings {
+    display: flex;
+    gap: 1rem;
+}
+
+.change-read-status,
+.delete-button {
+    transition: 0.5s;
+}
+
+.change-read-status:hover,
+.delete-button:hover{
+    scale: 130%;
+    cursor: pointer;
+}
+
+.github-account {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Roboto Mono', monospace;
+    color: black;
+    text-decoration: none;
+}
+
+.account-name {
+    color: rgb(203, 0, 0);
 }
